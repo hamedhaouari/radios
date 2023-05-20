@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+	<title>Rwaden Tounes : Radio Tunisie en ligne</title>
+	<style>
+	.collapsing {
+	  height: 0;
+	  overflow: hidden;
+	  transition: width .60s ease;
+	}
+	.containeraudio {
+	margin: 50vh auto;
+	max-width: 500px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+	</style>
+  </head>
+  <body>
+	<div class="container-fluid">
+	<button class="btn float-end"  role="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="true" aria-controls="sidebar">
+       <i class="bi bi-arrow-right-square-fill fs-3"></i>
+    </button>
+	<div class="row">
+    <div id="sidebar" class=" align-items-stretch col-sm-12 col-md-3 bg-white  show" >
+    <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-5 fw-semibold">Stations Radios</span>
+    </a>
+	
+    <div id="sort" x-data = "radios" class="list-group list-group-flush border-bottom scrollarea">
+		<template x-for="radio in radios">
+			 <div x-on:click="play( radio.url)" class="card mb-3" style="max-width: 540px;">
+				  <div class="row g-0">
+					<div class="col-md-4">
+					  <img x-bind:src="radio.logo" class="img-fluid rounded-start" x-bind:alt="radio.name + ' logo'" style="width: 60px;height: 60px;">
+					</div>
+					<div class="col-md-8">
+					  <div class="card-body">
+						<h5 class="card-title" x-text="radio.name"></h5>
+						
+					  </div>
+					</div>
+				  </div>
+				</div>
+	     </template>
+  
+    </div>
+  </div>
+	<div class="col-md-9 col-sm-12">
+		<div class="containeraudio">
+			<audio crossorigin playsinline>
+				<source x-bind:src="theradio" type="audio/mp3">
+				
+			</audio>
+		</div>
+	</div>
+	</div>
+	</div>
+
+   
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src=" https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js "></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+	<script>
+		const radios = [
+		  {
+			"name": "Diwan FM",
+			"url": "https://streaming.diwanfm.net/stream",
+			"logo": "https://diwanfm.net/template/images/logo.png"
+		  },
+		  {
+			"name": "Mosaique FM",
+			"url": "https://radio.mosaiquefm.net/mosalive",
+			"logo": "https://upload.wikimedia.org/wikipedia/fr/2/26/Mosaique_fm_logo.png"
+		  },
+		  {
+			"name": "IFM",
+			"url": "https://live.ifm.tn/radio/8000/ifmlive",
+			"logo": "https://www.ifm.tn/images/logo.png"
+		  }
+		]
+		let theradio = radios[0].url
+		var el = document.getElementById('sort')
+		new Sortable(el, {
+			animation: 150,
+			ghostClass: 'blue-background-class'
+		})
+		// Change "{}" to your options:
+		// https://github.com/sampotts/plyr/#options
+		const player = new Plyr('audio', {displayDuration : false, autoplay:true, invertTime : false , settings: [], controls : [ 'play', 'progress', 'volume','mute']});
+
+		// Expose player so it can be used from the console
+		window.player = player;
+		function play(src){
+		player.source = {
+        type: 'audio',
+       
+        sources: [
+         {
+              src: src,
+              
+          }
+        ],
+
+      }; 
+       player.play();
+		}
+		play(theradio)
+	</script>
+  </body>
+</html>
