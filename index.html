@@ -39,7 +39,7 @@
 	
     <div id="sort" x-data = "radios" class="list-group list-group-flush border-bottom scrollarea">
 		<template x-for="radio in radios">
-			 <div  @click="alert('Hello World!')" class="card mb-3" style="max-width: 540px;">
+			 <div  x-on:touchstart="alert('Hello World!')" class="card mb-3" style="max-width: 540px;">
 				  <div class="row g-0">
 					<div class="col-md-4">
 					  <img x-bind:src="radio.logo" class="img-fluid rounded-start" x-bind:alt="radio.name + ' logo'" style="width: 60px;height: 60px;">
@@ -75,7 +75,7 @@
   }</script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src=" https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js "></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
