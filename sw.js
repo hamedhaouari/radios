@@ -21,7 +21,7 @@ const RUNTIME = 'runtime';
 const PRECACHE_URLS = [ "https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js", "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js",
                        "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js", "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js",
                        "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css",
-                       "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css", "https://cdn.plyr.io/3.7.8/plyr.css" ];
+                       "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"];
 
 
 // The install handler takes care of precaching the resources we always need.
