@@ -34,12 +34,13 @@
     <div id="sidebar" class=" align-items-stretch col-sm-12 col-md-3 bg-white  show" >
     <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
       <img src="logo192.webp" class="img-fluid rounded-start" style="width: 60px;height: 60px;">
-      <span class="fs-5 fw-semibold">Stations Radios</span>
+      <span class="fs-5 fw-semibold">Stations Radios  <h5 id="rname"></h5></span>
+
     </a>
 	
     <div id="sort" x-data = "radios" class="list-group list-group-flush border-bottom scrollarea">
 		<template x-for="radio in radios">
-			 <div  x-on:touchstart="play(radio.url)"  x-on:click="play( radio.url)" class="card mb-3" style="max-width: 540px;">
+			 <div  x-on:touchstart="play(radio.url , radio.name)"  x-on:click="play( radio.url , radio.name )" class="card mb-3" style="max-width: 540px;">
 				  <div class="row g-0">
 					<div class="col-md-4">
 					  <img x-bind:src="radio.logo" class="img-fluid rounded-start" x-bind:alt="radio.name + ' logo'" style="width: 60px;height: 60px;">
@@ -135,8 +136,9 @@
 
 		// Expose player so it can be used from the console
 		window.player = player;
-		function play(src){
+		function play(src, name){
 			player.pause();
+		     document.getElementById("rname").innerHTML = name
 		player.source = {
 			type: 'audio',
 
