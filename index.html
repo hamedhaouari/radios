@@ -39,7 +39,7 @@
 	
     <div id="sort" x-data = "radios" class="list-group list-group-flush border-bottom scrollarea">
 		<template x-for="radio in radios">
-			 <div x-on:click="play( radio.url)" class="card mb-3" style="max-width: 540px;">
+			 <div x-bind:onclick="play( radio.url)" class="card mb-3" style="max-width: 540px;">
 				  <div class="row g-0">
 					<div class="col-md-4">
 					  <img x-bind:src="radio.logo" class="img-fluid rounded-start" x-bind:alt="radio.name + ' logo'" style="width: 60px;height: 60px;">
@@ -132,18 +132,19 @@
 		// Expose player so it can be used from the console
 		window.player = player;
 		function play(src){
+			player.pause();
 		player.source = {
-        type: 'audio',
-       
-        sources: [
-         {
-              src: src,
-              
-          }
-        ],
+			type: 'audio',
 
-      }; 
-       player.play();
+			sources: [
+			 {
+			      src: src,
+
+			  }
+			],
+
+		      }; 
+       		player.play();
 		}
 		
 	</script>
