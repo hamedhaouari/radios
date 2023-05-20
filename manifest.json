@@ -4,7 +4,7 @@
 	"description": "Les radio tunisiennes en ligne",
 	"icons": [
     {
-      "src": "assets/img/logo192.jpg",
+      "src": "logo192.jpg",
       "sizes": "192x192",
       "type": "image/jpeg",
       "density": 4.0,
@@ -12,14 +12,14 @@
 	    
     },
 	{
-      "src": "assets/img/logo192.webp",
+      "src": "logo192.webp",
       "sizes": "144x144",
       "type": "image/webp",
       "density": 4.0
 		
     },
 	{
-	  "src": "assets/img/logo512.jpg",
+	  "src": "logo512.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "density": "10.66"
